@@ -145,3 +145,23 @@ Why tintinweb wins on the evidence, not on feature count:
   + `.pi/agents/`). A deployment pilot from a clean fixture clone using only
   those files ran two parallel workers on their exact pinned models and
   passed acceptance (tests 4/4, diff confined to `src/calc.js`).
+
+## Addendum (2026-11-11): custom implementation supersedes this verdict
+
+On stricter review against the mandatory requirements, tintinweb remains the
+best *existing* extension, but no ready-to-use candidate satisfied all of
+them at once: tintinweb workers run inside the coordinator process (a host
+kill loses the run; only manual session resume remains) and its model
+resolver can fall back across providers on an inexact pin; purboo pools fail
+over across providers and models; xian0x5a concurrency is documented as
+approximate; anasalqoyyum has no scheduling pool or workflows.
+
+A purpose-built extension was therefore implemented on
+`@earendil-works/pi-durable` and published as
+[donbeave/pi-durable-swarm](https://github.com/donbeave/pi-durable-swarm):
+exact eligible model pins with no fallback or silent clamping, a hard
+6-worker / 2-per-provider scheduler, durable SQLite recovery (verified by
+killing the coordinator with `kill -9` mid-worker and recovering the worker
+to `completed` on reopen), and retained, never-auto-committed worktrees.
+For new work, pi-durable-swarm is the selected system; this fork stays as
+the evaluation record and the best off-the-shelf alternative.
