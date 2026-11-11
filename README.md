@@ -1,5 +1,15 @@
 # @tintinweb/pi-subagents
 
+> **Selected Pi multi-agent system for Muse Code (evaluation fork).**
+> This fork of [tintinweb/pi-subagents](https://github.com/tintinweb/pi-subagents) won a
+> head-to-head local evaluation of all ready-to-use Pi subagent implementations
+> (2558 upstream tests green, identical-task real-model benchmarks, six-worker
+> concurrency probe). Evidence: [EVALUATION.md](EVALUATION.md) ·
+> Protocol and raw results: [BENCHMARK.md](BENCHMARK.md) ·
+> Production deployment: [docs/PRODUCTION.md](docs/PRODUCTION.md).
+> The upstream README follows unchanged.
+
+
 <p align="center">
   <b>English</b> ·
   <a href="README.zh-CN.md">简体中文</a> ·
